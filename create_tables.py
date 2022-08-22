@@ -4,12 +4,30 @@ from sql_queries import create_table_queries, drop_table_queries
 
 
 def drop_tables(cur, conn):
+    """
+    Drop all tables if exists
+    Args:
+        cur: allows to execute PostgreSQL commands in a database session
+        conn: a database connection
+    
+    Returns:
+        None
+    """
     for query in drop_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def create_tables(cur, conn):
+    """
+    Create all tables if not exists
+    Args:
+        cur: allows to execute PostgreSQL commands in a database session
+        conn: a database connection
+    
+    Returns:
+        None
+    """
     for query in create_table_queries:
         cur.execute(query)
         conn.commit()
